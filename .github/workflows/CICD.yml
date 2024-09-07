@@ -1,17 +1,23 @@
-name: Manual Echo Workflow
+name: DEV pipeline
 
 on:
-  workflow_dispatch:
-    inputs:
-      message:
-        description: 'Message to echo'
-        required: true
-        default: 'Hello, GitHub Actions!'
+  schedule:
+    - cron: '*/1 * * * *'  # This runs the workflow every minute
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
-  echo_job:
+  Podman_image_creation:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Echo a message
-      run: echo "${{ github.event.inputs.message }}"
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print current date and time
+        run: date
+        shell: bash
+
+      - name: Deleted unknown images
+        run: |
+           echo "Execution from DEV branch"
+        shell: bash
