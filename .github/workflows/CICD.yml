@@ -3,7 +3,6 @@ name: DEV pipeline
 on:
   schedule:
     - cron: '*/1 * * * *'  # This runs the workflow every minute
-  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   Podman_image_creation:
