@@ -1,8 +1,6 @@
 name: DEV pipeline
 
 on:
-  schedule:
-    - cron: '* * * * *'  # This runs the workflow every minute
 
 jobs:
   Podman_image_creation:
